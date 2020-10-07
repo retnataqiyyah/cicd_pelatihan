@@ -2,12 +2,10 @@
 os:
   - windows
 # bahasa
-language: ruby
+language: cpp
 # distro 
 dist: trusty
 
-php:
-  - '7.1'
 # service yang digunakan
 services:
   - docker
