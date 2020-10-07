@@ -1,11 +1,8 @@
-# os yang di gunakan
-os:
-  - windows
-# bahasa
-language: cpp
-# distro 
-dist: trusty
+language: php
 
+php:
+- 7.0
+- 7.1
 # service yang digunakan
 services:
   - docker
@@ -15,11 +12,12 @@ jobs:
   # melakukan testing 
     - stage: "Tests"                
       name: "Unit Test PHP"  
-      script: 
+      before_script: 
       - travis_retry composer self-update
       - travis_retry composer install --prefer-source --no-interaction
       - cp .env.example .env
       - php artisan key:generate
+      script:
       - vendor/bin/phpunit tests/Feature/ExampleTest.php
     # melakukan build images dan publish ke docker hub
     - stage: "Build Docker Image"
