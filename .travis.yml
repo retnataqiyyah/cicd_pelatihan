@@ -21,7 +21,7 @@ jobs:
       - cp .env.example .env
       - php artisan key:generate
       script:
-      - vendor/bin/phpunit tests/Feature/ExampleTest.php
+      - tests/Feature/ExampleTest.php
     # melakukan build images dan publish ke docker hub
     - stage: "Build Docker Image"
       name: "Build Images Docker" 
